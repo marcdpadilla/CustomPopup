@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Yondu. All rights reserved.
 //
 
-//test this branch marctest
-
 #import "ViewController.h"
 
 @interface ViewController ()
