@@ -48,6 +48,11 @@
     [content setDataDetectorTypes:UIDataDetectorTypeLink];
     [container addSubview:content];
     
+    closeIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"rebellion_icon.png"]];
+    closeIcon.frame = CGRectMake((self.view.frame.size.width/2)-(closeIcon.frame.size.width/2), self.view.frame.size.height, 0.0, 0.0);
+    closeIcon.hidden = YES;
+    [self.view addSubview:closeIcon];
+    
     UITextField *input = [[UITextField alloc] initWithFrame:CGRectMake(20, 30, self.view.frame.size.width-40, 30)];
     input.delegate = self;
     [input setReturnKeyType:UIReturnKeySend];
@@ -136,8 +141,48 @@
                                     button.center.y + delta_y);
         container.center = button.center;
     } completion:^(BOOL finished) {
-        
+        if (CGRectIntersectsRect(button.frame, closeIcon.frame)) {
+            if (closeIcon.frame.size.width < 72.0) {
+                [UIView animateWithDuration:.500 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.3 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+                    CGRect close = closeIcon.frame;
+                    close.size.width = 72.0;
+                    close.size.height = 72.0;
+                    close.origin.y = self.view.frame.size.height-(72.0*2);
+                    close.origin.x = (self.view.frame.size.width/2)-(close.size.width/2);
+                    closeIcon.frame = close;
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }
+        } else {
+            if (closeIcon.frame.size.width == 72.0) {
+                [UIView animateWithDuration:.500 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.3 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+                    CGRect close = closeIcon.frame;
+                    close.size.width = 57.0;
+                    close.size.height = 57.0;
+                    close.origin.y = self.view.frame.size.height-(72.0*2);
+                    close.origin.x = (self.view.frame.size.width/2)-(close.size.width/2);
+                    closeIcon.frame = close;
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }
+        }
     }];
+    
+    if (!closeIconShown) {
+        closeIcon.hidden = NO;
+        [UIView animateWithDuration:.500 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.3 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+            CGRect close = closeIcon.frame;
+            close.size.width = 57.0;
+            close.size.height = 57.0;
+            close.origin.y = self.view.frame.size.height-(72.0*2);
+            close.origin.x = (self.view.frame.size.width/2)-(close.size.width/2);
+            closeIcon.frame = close;
+        } completion:^(BOOL finished) {
+            closeIconShown = YES;
+        }];
+    }
 }
 
 - (void) dragEnded:(UIButton *)button withEvent:(UIEvent *)event {
@@ -153,7 +198,6 @@
 	CGPoint location = [touch locationInView:button];
 	CGFloat delta_x = location.x - previousLocation.x;
 	CGFloat delta_y = location.y - previousLocation.y;
-    
     
 //	[UIView animateWithDuration:.250 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.3 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
         button.center = CGPointMake(delta_x+button.center.x, delta_y+button.center.y);
@@ -172,14 +216,39 @@
         } else {
             y = self.view.frame.size.height-(button.frame.size.height/2);
         }
-        
-        [UIView animateWithDuration:.700 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.3 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
-            button.center = CGPointMake(x, y);
-            container.center = button.center;
-        } completion:^(BOOL finished) {
-            
-        }];
+    
+    
+    
+        BOOL closeIconButton = NO;
+        if (CGRectIntersectsRect(button.frame, closeIcon.frame)) {
+            closeIconButton = YES;
+        } else {
+            [UIView animateWithDuration:.700 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.3 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+                button.center = CGPointMake(x, y);
+                container.center = button.center;
+            } completion:^(BOOL finished) {
+                
+            }];
+        }
 //    }];
+    
+    [UIView animateWithDuration:.500 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.3 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+        CGRect close = closeIcon.frame;
+        close.size.width = 0.0;
+        close.size.height = 0.0;
+        close.origin.y = self.view.frame.size.height;
+        close.origin.x = (self.view.frame.size.width/2);
+        closeIcon.frame = close;
+        
+        if (closeIconButton) {
+            iconButton.frame = close;
+            container.center = iconButton.center;
+        }
+    } completion:^(BOOL finished) {
+        closeIconShown = NO;
+        closeIcon.hidden = YES;
+        iconShown = NO;
+    }];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {

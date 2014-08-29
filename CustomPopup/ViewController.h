@@ -12,9 +12,11 @@
     UIButton *iconButton;
     UIView *container;
     UIWebView *content;
+    UIImageView *closeIcon;
     BOOL iconShown;
     BOOL shown;
     BOOL wasDragged;
+    BOOL closeIconShown;
 }
 
 @end
