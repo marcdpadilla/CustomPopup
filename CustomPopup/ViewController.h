@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIWebViewDelegate, UITextFieldDelegate> {
+    UIButton *iconButton;
+    UIView *container;
+    UIWebView *content;
+    BOOL iconShown;
+    BOOL shown;
+    BOOL wasDragged;
+}
 
 @end

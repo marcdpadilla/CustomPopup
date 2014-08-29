@@ -13,7 +13,6 @@
 		530745F719AF0BB300200ACE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 530745F519AF0BB300200ACE /* InfoPlist.strings */; };
 		530745F919AF0BB300200ACE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 530745F819AF0BB300200ACE /* main.m */; };
 		530745FD19AF0BB300200ACE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 530745FC19AF0BB300200ACE /* AppDelegate.m */; };
-		5307460019AF0BB300200ACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530745FE19AF0BB300200ACE /* Main.storyboard */; };
 		5307460319AF0BB300200ACE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5307460219AF0BB300200ACE /* ViewController.m */; };
 		5307460519AF0BB300200ACE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5307460419AF0BB300200ACE /* Images.xcassets */; };
 		5307460C19AF0BB300200ACE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5307460B19AF0BB300200ACE /* XCTest.framework */; };
@@ -21,6 +20,7 @@
 		5307460E19AF0BB300200ACE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 530745F019AF0BB300200ACE /* UIKit.framework */; };
 		5307461619AF0BB300200ACE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5307461419AF0BB300200ACE /* InfoPlist.strings */; };
 		5307461819AF0BB300200ACE /* CustomPopupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5307461719AF0BB300200ACE /* CustomPopupTests.m */; };
+		5307462219AF0EC600200ACE /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5307462119AF0EC600200ACE /* icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 		530745FA19AF0BB300200ACE /* CustomPopup-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CustomPopup-Prefix.pch"; sourceTree = "<group>"; };
 		530745FB19AF0BB300200ACE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		530745FC19AF0BB300200ACE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		530745FF19AF0BB300200ACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5307460119AF0BB300200ACE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5307460219AF0BB300200ACE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5307460419AF0BB300200ACE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		5307461319AF0BB300200ACE /* CustomPopupTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CustomPopupTests-Info.plist"; sourceTree = "<group>"; };
 		5307461519AF0BB300200ACE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5307461719AF0BB300200ACE /* CustomPopupTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomPopupTests.m; sourceTree = "<group>"; };
+		5307462119AF0EC600200ACE /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +114,9 @@
 			children = (
 				530745FB19AF0BB300200ACE /* AppDelegate.h */,
 				530745FC19AF0BB300200ACE /* AppDelegate.m */,
-				530745FE19AF0BB300200ACE /* Main.storyboard */,
 				5307460119AF0BB300200ACE /* ViewController.h */,
 				5307460219AF0BB300200ACE /* ViewController.m */,
+				5307462119AF0EC600200ACE /* icon@2x.png */,
 				5307460419AF0BB300200ACE /* Images.xcassets */,
 				530745F319AF0BB300200ACE /* Supporting Files */,
 			);
@@ -230,7 +230,7 @@
 			files = (
 				5307460519AF0BB300200ACE /* Images.xcassets in Resources */,
 				530745F719AF0BB300200ACE /* InfoPlist.strings in Resources */,
-				5307460019AF0BB300200ACE /* Main.storyboard in Resources */,
+				5307462219AF0EC600200ACE /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,14 +280,6 @@
 				530745F619AF0BB300200ACE /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		530745FE19AF0BB300200ACE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				530745FF19AF0BB300200ACE /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		5307461419AF0BB300200ACE /* InfoPlist.strings */ = {
